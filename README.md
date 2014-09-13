@@ -15,7 +15,7 @@ mvn clean package
 this command download all required dependencies and merge it into a jar file ```release/modules/ext/tagmycode-jar-with-dependencies.jar```
 
 ###Consumer Id and Consumer secret###
-You need to create a Java class Secret.java into ```com/tagmycode/netbeans```
+You need to create a Java class ```Secret.java``` into ```com/tagmycode/netbeans```
 
 ```java
 package com.tagmycode.netbeans;
@@ -26,12 +26,12 @@ class Secret extends AbstractSecret {
 
     @Override
     public String getConsumerId() {
-        return "";
+        return "YOUR_CONSUMER_ID";
     }
 
     @Override
     public String getConsumerSecret() {
-        return "";
+        return "YOUR_CONSUMER_SECRET";
     }
 
 }
