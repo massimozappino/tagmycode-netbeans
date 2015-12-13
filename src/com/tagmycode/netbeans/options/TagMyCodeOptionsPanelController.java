@@ -82,4 +82,4 @@ public final class TagMyCodeOptionsPanelController extends OptionsPanelControlle
         pcs.firePropertyChange(OptionsPanelController.PROP_VALID, null, null);
     }
 
-}
+    }

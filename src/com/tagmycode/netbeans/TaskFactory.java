@@ -2,7 +2,6 @@ package com.tagmycode.netbeans;
 
 import com.tagmycode.plugin.AbstractTaskFactory;
 import org.netbeans.api.progress.ProgressHandle;
-import org.netbeans.api.progress.ProgressHandleFactory;
 import org.openide.util.RequestProcessor;
 import org.openide.util.TaskListener;
 
@@ -18,7 +17,7 @@ class TaskFactory extends AbstractTaskFactory {
         RequestProcessor = new RequestProcessor(title, 1, true);
         theTask = RequestProcessor.create(runnable);
 
-        ph = ProgressHandleFactory.createHandle(title, theTask);
+        ph = ProgressHandle.createHandle(title, theTask);
         theTask.addTaskListener(new TaskListener() {
             @Override
             public void taskFinished(org.openide.util.Task task) {
