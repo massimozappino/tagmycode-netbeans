@@ -1,9 +1,9 @@
 package com.tagmycode.netbeans;
 
-import com.tagmycode.plugin.AbstractPreferences;
+import com.tagmycode.plugin.AbstractStorage;
 import org.openide.util.NbPreferences;
 
-class PreferencesManager extends AbstractPreferences {
+class PreferencesManager extends AbstractStorage {
 
     @Override
     protected String read(String string) {

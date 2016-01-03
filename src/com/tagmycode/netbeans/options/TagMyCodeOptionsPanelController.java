@@ -1,7 +1,7 @@
 package com.tagmycode.netbeans.options;
 
 import com.tagmycode.netbeans.TagMyCodeTopComponent;
-import com.tagmycode.plugin.gui.SettingsForm;
+import com.tagmycode.plugin.gui.form.SettingsForm;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javax.swing.JComponent;
@@ -69,7 +69,7 @@ public final class TagMyCodeOptionsPanelController extends OptionsPanelControlle
 
     private JPanel getPanel() {
         if (panel == null) {
-            panel = new SettingsForm(TagMyCodeTopComponent.getInstance().getFramework()).getMainPanel();
+            panel = (JPanel) new SettingsForm(TagMyCodeTopComponent.getInstance().getFramework()).getMainComponent();
         }
         return panel;
     }

@@ -44,7 +44,7 @@ public final class TagMyCodeTopComponent extends TopComponent {
     public TagMyCodeTopComponent() {
         initTagMyCode();
         initComponents();
-        add(framework.getMainWindow().getMainPanel(), BorderLayout.CENTER);
+        add(framework.getMainWindow().getMainComponent(), BorderLayout.CENTER);
 
         revalidate();
         repaint();
