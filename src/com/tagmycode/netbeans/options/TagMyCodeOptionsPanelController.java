@@ -5,7 +5,6 @@ import com.tagmycode.plugin.gui.form.SettingsForm;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
@@ -18,7 +17,7 @@ import org.openide.util.Lookup;
 @org.openide.util.NbBundle.Messages({"AdvancedOption_DisplayName_TagMyCode=TagMyCode", "AdvancedOption_Keywords_TagMyCode=keywords"})
 public final class TagMyCodeOptionsPanelController extends OptionsPanelController {
 
-    private JPanel panel;
+    private JComponent panel;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;
 
@@ -67,9 +66,9 @@ public final class TagMyCodeOptionsPanelController extends OptionsPanelControlle
         pcs.removePropertyChangeListener(l);
     }
 
-    private JPanel getPanel() {
+    private JComponent getPanel() {
         if (panel == null) {
-            panel = (JPanel) new SettingsForm(TagMyCodeTopComponent.getInstance().getFramework()).getMainComponent();
+            panel = new SettingsForm(TagMyCodeTopComponent.getInstance().getFramework()).getMainComponent();
         }
         return panel;
     }
