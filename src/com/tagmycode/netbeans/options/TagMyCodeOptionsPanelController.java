@@ -68,7 +68,7 @@ public final class TagMyCodeOptionsPanelController extends OptionsPanelControlle
 
     private JComponent getPanel() {
         if (panel == null) {
-            panel = new SettingsForm(TagMyCodeTopComponent.getInstance().getFramework()).getMainComponent();
+            panel = new SettingsForm(TagMyCodeTopComponent.getInstance().getFramework(), null).getMainComponent();
         }
         return panel;
     }
