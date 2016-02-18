@@ -62,7 +62,8 @@ public final class SearchSnippet implements ActionListener {
             }
         };
 
-        framework.showSearchDialog(iDocumentInsertText);
+
+      //  framework.showSearchDialog(iDocumentInsertText);
     }
 
 }
