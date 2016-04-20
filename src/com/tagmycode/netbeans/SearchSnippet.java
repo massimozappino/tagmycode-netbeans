@@ -49,7 +49,7 @@ public final class SearchSnippet implements ActionListener {
         }
 
         final JTextComponent component = context.getOpenedPanes()[0];
-        
+
         final IDocumentInsertText iDocumentInsertText = new IDocumentInsertText() {
 
             @Override
@@ -62,8 +62,7 @@ public final class SearchSnippet implements ActionListener {
             }
         };
 
-
-      //  framework.showSearchDialog(iDocumentInsertText);
+        framework.showSearchDialog(iDocumentInsertText);
     }
 
 }

@@ -56,6 +56,7 @@ public final class TagMyCodeTopComponent extends TopComponent {
     private void initTagMyCode() {
         final FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), new PreferencesManager(), new MessageManager(), new TaskFactory(), getMainFrame());
         framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
+        framework.start();
     }
 
     public Framework getFramework() {
