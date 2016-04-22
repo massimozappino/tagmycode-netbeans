@@ -36,9 +36,6 @@ import org.openide.windows.WindowManager;
 })
 public final class TagMyCodeTopComponent extends TopComponent {
 
-    private final String consumerKey = "2c33570661b4e7defe384ee310cdb814dfc28a7f";
-    private final String consumerSecret = "e8b75ba7b990aebff036b069df7d6723e7aa59b1";
-
     private Framework framework;
 
     public TagMyCodeTopComponent() {
