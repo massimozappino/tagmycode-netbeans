@@ -28,7 +28,7 @@ import org.openide.util.NbBundle.Messages;
     @ActionReference(path = "Editors/Popup", position = 4040, separatorBefore = 4035, separatorAfter = 4045),
     @ActionReference(path = "Shortcuts", name = "DOS-T")
 })
-@Messages("CTL_CreateSnippetAction=Create new snippet...")
+@Messages("CTL_CreateSnippetAction=Add Snippet on TagMyCode...")
 public final class CreateSnippetAction implements ActionListener {
 
     private final EditorCookie context;

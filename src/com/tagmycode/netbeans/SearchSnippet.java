@@ -29,7 +29,7 @@ import org.openide.util.NbBundle.Messages;
     @ActionReference(path = "Shortcuts", name = "DOS-SPACE")
 })
 
-@Messages("CTL_SearchSnippet=Search snippets...")
+@Messages("CTL_SearchSnippet=Search Snippets on TagMyCode...")
 public final class SearchSnippet implements ActionListener {
 
     private final EditorCookie context;
