@@ -54,8 +54,7 @@ public final class CreateSnippetAction implements ActionListener {
         Snippet snippet = new Snippet();
         snippet.setTitle(displayName);
         snippet.setCode(getCode(component));
-        final String mimeType = NbEditorUtilities.getMimeType(component);
-        framework.showNewSnippetDialog(snippet, mimeType);
+        framework.showNewSnippetDialog(snippet);
     }
 
     private String getCode(JTextComponent component) {
