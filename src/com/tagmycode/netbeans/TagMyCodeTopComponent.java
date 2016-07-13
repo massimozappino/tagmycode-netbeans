@@ -4,13 +4,13 @@ package com.tagmycode.netbeans;
 import com.tagmycode.plugin.Framework;
 import com.tagmycode.plugin.FrameworkConfig;
 import com.tagmycode.sdk.authentication.TagMyCodeApiProduction;
+import com.tagmycode.sdk.exception.TagMyCodeException;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.io.IOException;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
-import org.openide.util.Exceptions;
 import org.openide.util.NbBundle.Messages;
 import org.openide.windows.TopComponent;
 import org.openide.windows.WindowManager;
@@ -57,10 +57,9 @@ public final class TagMyCodeTopComponent extends TopComponent {
             final FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), new PreferencesManager(), new MessageManager(), new TaskFactory(), getMainFrame());
             framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
             framework.start();
-        } catch (IOException e) {
+        } catch (IOException | TagMyCodeException e) {
             throw new RuntimeException(e);
         }
-        
     }
 
     public Framework getFramework() {
