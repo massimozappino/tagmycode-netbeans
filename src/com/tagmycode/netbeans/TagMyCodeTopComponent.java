@@ -4,8 +4,10 @@ package com.tagmycode.netbeans;
 import com.tagmycode.plugin.Framework;
 import com.tagmycode.plugin.FrameworkConfig;
 import com.tagmycode.sdk.authentication.TagMyCodeApiProduction;
+import com.tagmycode.sdk.exception.TagMyCodeException;
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.io.IOException;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -36,15 +38,12 @@ import org.openide.windows.WindowManager;
 })
 public final class TagMyCodeTopComponent extends TopComponent {
 
-    private final String consumerKey = "2c33570661b4e7defe384ee310cdb814dfc28a7f";
-    private final String consumerSecret = "e8b75ba7b990aebff036b069df7d6723e7aa59b1";
-
     private Framework framework;
 
     public TagMyCodeTopComponent() {
         initTagMyCode();
         initComponents();
-        add(framework.getMainWindow().getMainPanel(), BorderLayout.CENTER);
+        add(framework.getMainWindow().getMainComponent(), BorderLayout.CENTER);
 
         revalidate();
         repaint();
@@ -54,8 +53,13 @@ public final class TagMyCodeTopComponent extends TopComponent {
     }
 
     private void initTagMyCode() {
-        final FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), new PreferencesManager(), new MessageManager(), new TaskFactory(), getMainFrame());
-        framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
+        try {
+            final FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), new PreferencesManager(), new MessageManager(), new TaskFactory(), getMainFrame());
+            framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
+            framework.start();
+        } catch (IOException | TagMyCodeException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public Framework getFramework() {

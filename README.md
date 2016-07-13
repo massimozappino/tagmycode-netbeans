@@ -12,7 +12,7 @@ To download all dependencies use Maven
 mvn clean package
 ```
 
-this command download all required dependencies and merge it into a jar file ```release/modules/ext/tagmycode-jar-with-dependencies.jar```
+this command download all required dependencies and merge them into a jar file ```release/modules/ext/tagmycode-jar-with-dependencies.jar```
 
 ###Consumer Id and Consumer secret###
 You need to create a Java class ```Secret.java``` into ```com/tagmycode/netbeans```
