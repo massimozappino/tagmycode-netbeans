@@ -1,5 +1,6 @@
 package com.tagmycode.netbeans;
 
+import com.tagmycode.plugin.AbstractVersion;
 import com.tagmycode.plugin.Framework;
 import com.tagmycode.plugin.FrameworkConfig;
 import com.tagmycode.sdk.DbService;
@@ -59,7 +60,8 @@ public final class TagMyCodeTopComponent extends TopComponent {
     private void initTagMyCode() {
         try {
             DbService dbService = new DbService(new SaveFilePath(getOrCreateNamespace()));
-            FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), dbService, new MessageManager(), new TaskFactory(), getMainFrame());
+   
+            FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), dbService, new MessageManager(), new TaskFactory(), new NetBeansVersion(), getMainFrame());
             framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
             framework.start();
         } catch (IOException | SQLException | TagMyCodeException e) {
