@@ -1,13 +1,18 @@
 package com.tagmycode.netbeans;
 
-
+import com.tagmycode.plugin.AbstractVersion;
 import com.tagmycode.plugin.Framework;
 import com.tagmycode.plugin.FrameworkConfig;
+import com.tagmycode.sdk.DbService;
+import com.tagmycode.sdk.SaveFilePath;
 import com.tagmycode.sdk.authentication.TagMyCodeApiProduction;
 import com.tagmycode.sdk.exception.TagMyCodeException;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.sql.SQLException;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -54,10 +59,12 @@ public final class TagMyCodeTopComponent extends TopComponent {
 
     private void initTagMyCode() {
         try {
-            final FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), new PreferencesManager(), new MessageManager(), new TaskFactory(), getMainFrame());
+            DbService dbService = new DbService(new SaveFilePath(getOrCreateNamespace()));
+   
+            FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), dbService, new MessageManager(), new TaskFactory(), new NetBeansVersion(), getMainFrame());
             framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
             framework.start();
-        } catch (IOException | TagMyCodeException e) {
+        } catch (IOException | SQLException | TagMyCodeException e) {
             throw new RuntimeException(e);
         }
     }
@@ -109,5 +116,18 @@ public final class TagMyCodeTopComponent extends TopComponent {
 
     public Frame getMainFrame() {
         return WindowManager.getDefault().getMainWindow();
+    }
+
+    private String getOrCreateNamespace() {
+        NetbeansPreferences preferences = new NetbeansPreferences();
+        String profile = preferences.read("profile");
+        if (profile.length() == 0) {
+            SecureRandom random = new SecureRandom();
+            profile = new BigInteger(130, random).toString(32);
+            preferences.write("profile", profile);
+            Framework.LOGGER.info("profile id: " + profile);
+            preferences.write("profile", profile);
+        }
+        return "netbeans-" + profile;
     }
 }
