@@ -1,6 +1,5 @@
 package com.tagmycode.netbeans;
 
-import com.tagmycode.plugin.AbstractVersion;
 import com.tagmycode.plugin.Framework;
 import com.tagmycode.plugin.FrameworkConfig;
 import com.tagmycode.sdk.DbService;
