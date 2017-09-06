@@ -2,6 +2,8 @@ package com.tagmycode.netbeans;
 
 
 import com.tagmycode.plugin.Framework;
+import com.tagmycode.sdk.model.Language;
+import com.tagmycode.sdk.model.LanguagesCollection;
 import com.tagmycode.sdk.model.Snippet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,10 +52,11 @@ public final class CreateSnippetAction implements ActionListener {
         JTextComponent component = context.getOpenedPanes()[0];
         org.openide.loaders.DataObject dataObject = NbEditorUtilities.getDataObject(context.getDocument());
         final String displayName = dataObject.getNodeDelegate().getDisplayName();
-
+        
         Snippet snippet = new Snippet();
         snippet.setTitle(displayName);
         snippet.setCode(getCode(component));
+        snippet.setLanguage(framework.getData().getLanguages().findByFileName(displayName));
         framework.showNewSnippetDialog(snippet);
     }
 
