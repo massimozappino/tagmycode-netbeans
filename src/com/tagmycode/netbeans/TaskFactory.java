@@ -1,30 +1,44 @@
 package com.tagmycode.netbeans;
 
 import com.tagmycode.plugin.AbstractTaskFactory;
+import com.tagmycode.plugin.operation.TagMyCodeAsynchronousOperation;
 import org.netbeans.api.progress.ProgressHandle;
+import org.openide.util.Cancellable;
 import org.openide.util.RequestProcessor;
+import org.openide.util.Task;
 import org.openide.util.TaskListener;
 
 class TaskFactory extends AbstractTaskFactory {
 
-    private ProgressHandle ph = null;
-    private RequestProcessor.Task theTask = null;
-    private RequestProcessor RequestProcessor;
-
     @Override
-    public void create(Runnable runnable, String title) {
-        //The RequestProcessor has to have  allowInterrupt set to true!!
-        RequestProcessor = new RequestProcessor(title, 1, true);
-        theTask = RequestProcessor.create(runnable);
+    public void create(final TagMyCodeAsynchronousOperation operation, final Runnable runnable, final String title) {
+        final Thread thread = new Thread(runnable);
+        RequestProcessor requestProcessor = new RequestProcessor(title, 1, true);
 
-        ph = ProgressHandle.createHandle(title, theTask);
-        theTask.addTaskListener(new TaskListener() {
+        final ProgressHandle ph = ProgressHandle.createHandle(title, new Cancellable() {
             @Override
-            public void taskFinished(org.openide.util.Task task) {
-                ph.finish();
+            public boolean cancel() {
+                thread.interrupt();
+                return true;
             }
         });
         ph.start();
-        theTask.schedule(0);
+
+        RequestProcessor.Task task = requestProcessor.create(new Runnable() {
+            @Override
+            public void run() {
+                thread.start();
+                while (thread.isAlive()) {
+                }
+            }
+        });
+
+        task.addTaskListener(new TaskListener() {
+            @Override
+            public void taskFinished(Task task) {
+                ph.finish();
+            }
+        });
+        task.schedule(0);
     }
 }
