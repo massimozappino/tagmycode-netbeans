@@ -1,7 +1,6 @@
 package com.tagmycode.netbeans;
 
 import com.tagmycode.plugin.AbstractTaskFactory;
-import com.tagmycode.plugin.operation.TagMyCodeAsynchronousOperation;
 import org.netbeans.api.progress.ProgressHandle;
 import org.openide.util.Cancellable;
 import org.openide.util.RequestProcessor;
@@ -11,7 +10,7 @@ import org.openide.util.TaskListener;
 class TaskFactory extends AbstractTaskFactory {
 
     @Override
-    public void create(final TagMyCodeAsynchronousOperation operation, final Runnable runnable, final String title) {
+    public void create(final Runnable runnable, final String title) {
         final Thread thread = new Thread(runnable);
         RequestProcessor requestProcessor = new RequestProcessor(title, 1, true);
 
