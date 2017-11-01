@@ -121,11 +121,11 @@ public final class TagMyCodeTopComponent extends TopComponent {
         NetbeansPreferences preferences = new NetbeansPreferences();
         String profile = preferences.read("profile");
         if (profile.length() == 0) {
+            // TODO move to framework
             SecureRandom random = new SecureRandom();
             profile = new BigInteger(130, random).toString(32);
             preferences.write("profile", profile);
             Framework.LOGGER.info("profile id: " + profile);
-            preferences.write("profile", profile);
         }
         return "netbeans-" + profile;
     }

@@ -2,8 +2,6 @@ package com.tagmycode.netbeans;
 
 
 import com.tagmycode.plugin.Framework;
-import com.tagmycode.sdk.model.Language;
-import com.tagmycode.sdk.model.LanguagesCollection;
 import com.tagmycode.sdk.model.Snippet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,7 +55,7 @@ public final class CreateSnippetAction implements ActionListener {
         snippet.setTitle(displayName);
         snippet.setCode(getCode(component));
         snippet.setLanguage(framework.getData().getLanguages().findByFileName(displayName));
-        framework.showNewSnippetDialog(snippet);
+        framework.showSnippetDialog(snippet);
     }
 
     private String getCode(JTextComponent component) {
