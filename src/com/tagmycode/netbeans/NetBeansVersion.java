@@ -6,7 +6,7 @@ public class NetBeansVersion extends AbstractVersion {
 
     @Override
     public String getPluginVersion() {
-        return "2.2.0";
+        return "2.2.1";
     }
 
     @Override
