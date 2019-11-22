@@ -58,9 +58,14 @@ public final class TagMyCodeTopComponent extends TopComponent {
 
     private void initTagMyCode() {
         try {
-            DbService dbService = new DbService(new SaveFilePath(getOrCreateNamespace()));
-   
-            FrameworkConfig frameworkConfig = new FrameworkConfig(new PasswordKeyChain(), dbService, new MessageManager(), new TaskFactory(), new NetBeansVersion(), getMainFrame());
+            SaveFilePath saveFilePath = new SaveFilePath(getOrCreateNamespace());
+
+            FrameworkConfig frameworkConfig = new FrameworkConfig(
+                    saveFilePath,
+                    new PasswordKeyChain(),
+                    new DbService(saveFilePath.getPath()),
+                    new MessageManager(),
+                    new TaskFactory(), new NetBeansVersion(), getMainFrame());
             framework = new Framework(new TagMyCodeApiProduction(), frameworkConfig, new Secret());
             framework.start();
         } catch (IOException | SQLException | TagMyCodeException e) {
