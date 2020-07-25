@@ -2,17 +2,10 @@ TagMyCode Official NetBeans Plugin
 ==================================
 
 This is the official NetBeans plugin for TagMyCode
+![screenshot](images/screenshot1.png)
 
 
 ## Getting started
-### Dependencies
-To download all dependencies use Maven
-
-```bash
-mvn clean package
-```
-
-this command download all required dependencies and merge them into a jar file ```release/modules/ext/tagmycode-jar-with-dependencies.jar```
 
 ### Consumer Id and Consumer secret
 You need to create a Java class ```Secret.java``` into ```com/tagmycode/netbeans```
