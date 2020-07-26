@@ -37,6 +37,9 @@
                 <extensions>true</extensions>
                 <configuration>
                     <useOSGiDependencies>false</useOSGiDependencies>
+                    <publicPackages>
+                        <publicPackage>com.tagmycode.netbeans</publicPackage>
+                    </publicPackages>
                 </configuration>
             </plugin>
             
@@ -167,8 +170,6 @@
     <description>Provides the support for &lt;a href="https://tagmycode.com"&gt;TagMyCode&lt;/a&gt;.
 
 
-
-
 This plugin allows you to manage your own snippets.&lt;br/&gt;
 &lt;br/&gt;
 Features:&lt;br/&gt;
@@ -177,6 +178,10 @@ Features:&lt;br/&gt;
 * Quick search: you can search your snippets and insert them directly into the document&lt;br/&gt;
 &lt;br/&gt;
 CHANGELOG:&lt;br/&gt;
+&lt;br/&gt;
+2.3.0 (released 2020-07-26)&lt;br/&gt;
+* published plugin into Apache NetBeans Plugin Portal&lt;br/&gt;
+* filter snippets by languages&lt;br/&gt;
 &lt;br/&gt;
 2.2.1 (released 2018-01-10)&lt;br/&gt;
 * Quick Search dialog is now resizable&lt;/br&gt;
@@ -226,5 +231,4 @@ CHANGELOG:&lt;br/&gt;
 * First release with feature "Create snippet"&lt;br/&gt;
 
 </description>
-    <name>TagMyCode</name>
 </project>
