@@ -25,7 +25,7 @@ import org.openide.windows.WindowManager;
 )
 @TopComponent.Description(
         preferredID = "TagMyCodeTopComponent",
-        iconBase = "com/tagmycode/netbeans/resources/tagmycode.png",
+        iconBase = "tagmycode.png",
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
 @TopComponent.Registration(mode = "output", openAtStartup = true)

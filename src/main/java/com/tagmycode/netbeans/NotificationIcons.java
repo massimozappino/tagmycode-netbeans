@@ -11,11 +11,11 @@ public abstract class NotificationIcons {
     public static final Icon INFO;
 
     @StaticResource
-    private static final String ERROR_IMAGE = "com/tagmycode/netbeans/resources/notifications/errorIcon.png";
+    private static final String ERROR_IMAGE = "notifications/errorIcon.png";
     @StaticResource
-    private static final String WARNING_IMAGE = "com/tagmycode/netbeans/resources/notifications/warningIcon.png";
+    private static final String WARNING_IMAGE = "notifications/warningIcon.png";
     @StaticResource
-    private static final String INFO_IMAGE = "com/tagmycode/netbeans/resources/notifications/infoIcon.png";
+    private static final String INFO_IMAGE = "notifications/infoIcon.png";
 
     static {
         ERROR = ImageUtilities.image2Icon(ImageUtilities.loadImage(ERROR_IMAGE));

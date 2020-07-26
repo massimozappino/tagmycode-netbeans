@@ -19,7 +19,7 @@ import org.openide.util.NbBundle.Messages;
         id = "com.tagmycode.netbeans.CreateSnippetAction"
 )
 @ActionRegistration(
-        iconBase = "com/tagmycode/netbeans/resources/create.png",
+        iconBase = "create.png",
         displayName = "#CTL_CreateSnippetAction"
 )
 @ActionReferences({
