@@ -19,7 +19,7 @@ import org.openide.util.NbBundle.Messages;
         id = "com.tagmycode.netbeans.SearchSnippet"
 )
 @ActionRegistration(
-        iconBase = "com/tagmycode/netbeans/resources/search.png",
+        iconBase = "search.png",
         displayName = "#CTL_SearchSnippet"
 )
 
