@@ -72,7 +72,7 @@
     <orderEntry type="library" name="Maven: org.netbeans.api:org-openide-text:RELEASE110" level="project" />
     <orderEntry type="library" name="Maven: org.netbeans.api:org-netbeans-api-progress:RELEASE110" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" name="Maven: com.tagmycode:tagmycode-plugin-framework:2.4.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.tagmycode:tagmycode-plugin-framework:2.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-api:5.3.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.opentest4j:opentest4j:1.1.1" level="project" />
