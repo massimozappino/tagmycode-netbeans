@@ -7,6 +7,7 @@
     <packaging>nbm</packaging>
     <name>TagMyCode</name>
     <url>https://tagmycode.com</url>
+    <description>Official TagMyCode plugin for NetBeans</description>
     <developers>
         <developer>
             <id>massimozappino</id>
@@ -15,6 +16,12 @@
             <timezone>+2</timezone>
         </developer>
     </developers>
+    <scm>
+        <connection>scm:git:https://github.com/massimozappino/tagmycode-netbeans.git</connection>
+        <developerConnection>scm:git:https://github.com/massimozappino/tagmycode-netbeans.git</developerConnection>
+        <url>https://github.com/massimozappino/tagmycode-netbeans/tree/${project.scm.tag}</url>
+        <tag>master</tag>
+    </scm>
     <licenses>
         <license>
             <name>Apache License 2.0</name>
