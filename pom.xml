@@ -7,7 +7,6 @@
     <packaging>nbm</packaging>
     <name>TagMyCode</name>
     <url>https://tagmycode.com</url>
-    <description>Official TagMyCode plugin for NetBeans</description>
     <developers>
         <developer>
             <id>massimozappino</id>
